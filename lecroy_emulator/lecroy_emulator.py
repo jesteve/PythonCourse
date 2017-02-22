@@ -16,8 +16,8 @@ def create_data(npoints = 2048):
 def emulate(query):
     if query=="*IDN?":
         return "Lecroy Oscilloscope Emulator.\n"
-    if query=="C1:WF?":
+    if query.startswith("C1:WF?") or query.startswith("C1:WAVEFORM?"):
         return create_data()
-    if query=="C2:WF?":
+    if query.startswith("C2:WF?") or query.startswith("C2:WAVEFORM?"):
         return create_data()
     return 'Unknown request.\n'
